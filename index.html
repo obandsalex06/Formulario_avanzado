@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Formulario Avanzado</title>
     <link rel="stylesheet" href="../_css/styles.css" />
   </head>
   <body>
     <div class="container">
       <h1>Formulario avanzado</h1>
 
-      <!-- Barra de progreso -->
       <div class="progreso-formulario">
         <div class="barra-progreso" id="barraProgreso"></div>
       </div>
@@ -18,194 +17,576 @@
         progreso: <span id="porcentajeProgreso">0%</span>
       </p>
 
-      <!--Form-->
       <form id="formularioAvanzado" novalidate>
-        <!--Nombre con validacion en tiempo real-->
         <div class="form-group">
-          <label for="nombreCompleto">Nombres completos *</label>
+          <label for="nombres">Nombres completos *</label>
           <input
             type="text"
-            id="nombreCompleto"
-            name="nombreCompleto"
+            id="nombres"
+            name="nombres"
             required
             autofocus
-            placeholder="Minimo 2 nombres"
+            placeholder="Mínimo 2 nombres"
             minlength="3"
-            pattern ="[A-Za-zÁÉÍÓÚáéíóúÑñÜü]{3,40}" />
-          <div 
-          class="mensaje-error" 
-          id="errorNombre"></div>
-          <div 
-          class="mensaje-exito" 
-          id="exitoNombre"></div>
-        </div>
-                <div class="form-group">
-          <label for="nombreCompleto">Aperridos completos *</label>
-          <input
-            type="text"
-            id="nombreCompleto"
-            name="nombreCompleto"
-            required
-            autofocus
-            placeholder="Minimo 2 apellidos"
-            minlength="3"
-            pattern ="[A-Za-zÁÉÍÓÚáéíóúÑñÜü]{3,40}" />
-          <div 
-          class="mensaje-error" 
-          id="errorNombre"></div>
-          <div 
-          class="mensaje-exito" 
-          id="exitoNombre"></div>
+            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{3,40}"
+          />
+          <div class="mensaje-error" id="errorNombres"></div>
+          <div class="mensaje-exito" id="exitoNombres"></div>
         </div>
 
-        <!--Email con validacion personalizada-->
         <div class="form-group">
-          <label for="correo">Correo electronico *</label>
+          <label for="apellidos">Apellidos completos *</label>
+          <input
+            type="text"
+            id="apellidos"
+            name="apellidos"
+            required
+            placeholder="Mínimo 2 apellidos"
+            minlength="3"
+            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{3,40}"
+          />
+          <div class="mensaje-error" id="errorApellidos"></div>
+          <div class="mensaje-exito" id="exitoApellidos"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo electrónico *</label>
           <input
             type="email"
             id="correo"
             name="correo"
             required
             placeholder="usuario@dominio.com"
-            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{5,50}$"/>
-          <div 
-          class="mensaje-error" 
-          id="errorCorreo"></div>
-          <div 
-          class="mensaje-exito" 
-          id="exitoCorreo"></div>
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{5,50}$"
+          />
+          <div class="mensaje-error" id="errorCorreo"></div>
+          <div class="mensaje-exito" id="exitoCorreo"></div>
         </div>
 
-        <!--Confirmar correo-->
         <div class="form-group">
-          <label for="correo">Correo electronico *</label>
+          <label for="confirmarCorreo">Confirmar correo electrónico *</label>
           <input
             type="email"
             id="confirmarCorreo"
             name="confirmarCorreo"
             required
-            placeholder="Confirmar correo" />
-          <div 
-          class="mensaje-error" 
-          id="errorEmail"></div>
-          <div 
-          class="mensaje-exito" 
-          id="exitoEmail"></div>
+            placeholder="Confirma tu correo"
+          />
+          <div class="mensaje-error" id="errorConfirmarCorreo"></div>
+          <div class="mensaje-exito" id="exitoConfirmarCorreo"></div>
         </div>
 
-        <!--Contraseña con indicador de fortaleza-->
         <div class="form-group">
-            <label for="password">Contraseña *</label>
-            <input 
+          <label for="password">Contraseña *</label>
+          <input
             type="password"
             id="password"
             name="password"
             required
-            placeholder="Minimo 8 caracteres"
+            placeholder="Mínimo 8 caracteres"
             minlength="8"
-            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$"/>
-        <div 
-        class="password-strength"
-        id="strengthBar"></div>
-        <div
-        class="mensaje-error"
-        id="errorPassword"></div>
-        <div
-        class="mensaje-exito"
-        id="exitoPassword"></div>
+            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$"
+          />
+          <div class="password-strength" id="strengthBar"></div>
+          <div class="mensaje-error" id="errorPassword"></div>
+          <div class="mensaje-exito" id="exitoPassword"></div>
         </div>
 
-        <!--Confirmacion de contraseña-->
         <div class="form-group">
-            <label for="ConfirmarPassword">Confirmar contraseña *</label>
-            <input 
+          <label for="confirmarPassword">Confirmar contraseña *</label>
+          <input
             type="password"
-            id="ConfirmarPassword"
-            name="ConfirmarPassword"
+            id="confirmarPassword"
+            name="confirmarPassword"
             required
-            placeholder="Repite la contraseña"/>
-            <div 
-            class="mensaje-error"
-            id="errorContraseña"></div>
-            <div 
-            class="mensaje-exito"
-            id="exitoConfirmar"></div>
+            placeholder="Repite la contraseña"
+          />
+          <div class="mensaje-error" id="errorConfirmar"></div>
+          <div class="mensaje-exito" id="exitoConfirmar"></div>
         </div>
 
-        <!--Telefono con formato-->
         <div class="form-group">
-            <label for="telefono">Telefono *</label>
-            <input 
+          <label for="telefono">Teléfono *</label>
+          <input
             type="tel"
             id="telefono"
             name="telefono"
             required
             placeholder="300-123-4567"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
-            <div
-            class="mensaje-error"
-            id="errorTelefono"></div>
-            <div
-            class="mensaje-exito"
-            id="exitoTelefono"></div>
-        </div> 
-
-        <!--Fecha de nacimiento-->
-        <div class="form-group">
-            <label for="fechaNacimiento">Fecha de nacimiento *</label>
-            <input 
-            type="date"
-            id="fechaNacimiento"
-            name="fechaNacimiento"
-            required />
-            <div
-            class="mensaje-error"
-            id="errorFecha"></div>
-            <div
-            class="mensaje-exito"
-            id="exitoFecha"></div>
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          />
+          <div class="mensaje-error" id="errorTelefono"></div>
+          <div class="mensaje-exito" id="exitoTelefono"></div>
         </div>
 
-        <!--Comentarios-->
         <div class="form-group">
-            <label for="comentarios">Comentarios</label>
-            <textarea
+          <label for="fechaNacimiento">Fecha de nacimiento *</label>
+          <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+          <div class="mensaje-error" id="errorFecha"></div>
+          <div class="mensaje-exito" id="exitoFecha"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="comentarios">Comentarios</label>
+          <textarea
             id="comentarios"
             name="comentarios"
             rows="4"
-            placeholder="Cuentanos sobre ti (Maximo 500 caracteres)"></textarea>
-            <div class="contador-caracteres">
-                <span id="contadorComentarios">0</span>/500 caracteres 
-            </div>
+            placeholder="Cuéntanos sobre ti (Máximo 500 caracteres)"
+            maxlength="500"
+          ></textarea>
+          <div class="contador-caracteres">
+            <span id="contadorComentarios">0</span>/500 caracteres
+          </div>
         </div>
 
-        <!--Terminos y condiciones-->
         <div class="form-group">
-            <input 
-            type="checkbox"
-            id="terminos"
-            name="terminos"
-            required />
-            <label 
-            for="terminos"
-            style="display: inline; margin-left: 8px">
-            Acepto los terminos y condiciones *
-            </label>
-            <div
-            class="mensaje-error"
-            id="errorTerminos"></div>
+          <input type="checkbox" id="terminos" name="terminos" required />
+          <label for="terminos" style="display: inline; margin-left: 8px">
+            Acepto los términos y condiciones *
+          </label>
+          <div class="mensaje-error" id="errorTerminos"></div>
         </div>
 
-        <!--Boton de envio-->
-        <button 
-        type="submit"
-        id="btnEnviar"
-        disabled>
-        Enviar Formulario
+        <button type="submit" id="btnEnviar" disabled>
+          Enviar Formulario
         </button>
       </form>
-    </div> <!-- container -->
-    <!--  Script  -->
-    <script></script>
+
+      <div id="resumenDatos" class="resumen-seccion" style="display: none;">
+        <h2>Datos Enviados Correctamente</h2>
+        <div id="contenidoResumen">
+          </div>
+        <button type="button" onclick="reiniciarFormulario()" style="margin-top: 20px;">
+          Reiniciar Formulario
+        </button>
+      </div>
+
+    </div>
+    <script>
+      // SISTEMA DE VALIDACIÓN AVANZADA
+const formulario = document.getElementById('formularioAvanzado');
+const campos = formulario.querySelectorAll('input, textarea, select');
+const btnEnviar = document.getElementById('btnEnviar');
+
+// Estado de validación de cada campo
+let estadoValidacion = {};
+
+// Inicializar estado de todos los campos. Es crucial que aquí coincidan los 'name' de tus inputs HTML
+campos.forEach((campo) => {
+    // Excluir el campo de comentarios de la validación inicial si es opcional
+    if (campo.name !== 'comentarios') {
+        estadoValidacion[campo.name] = false;
+    } else {
+        estadoValidacion[campo.name] = true; // Comentarios son opcionales, se consideran válidos por defecto
+    }
+});
+
+// 🎯 VALIDACIONES ESPECÍFICAS POR CAMPO
+
+// Validación de Nombres
+document.getElementById('nombres').addEventListener('input', function () {
+    const valor = this.value.trim();
+    const partes = valor.split(' ').filter((p) => p.length > 0);
+    if (valor.length < 3) {
+        mostrarError('errorNombres', 'El nombre debe tener al menos 3 caracteres.');
+        marcarCampo(this, false);
+    } else if (partes.length < 2) {
+        mostrarError('errorNombres', 'Ingresa al menos 2 nombres.');
+        marcarCampo(this, false);
+    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(valor)) {
+        mostrarError('errorNombres', 'Solo letras y espacios son permitidos.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoNombres', '✓ Nombres válidos.');
+        marcarCampo(this, true);
+    }
+});
+
+// Validación de Apellidos
+document.getElementById('apellidos').addEventListener('input', function () {
+    const valor = this.value.trim();
+    const partes = valor.split(' ').filter((p) => p.length > 0);
+    if (valor.length < 3) {
+        mostrarError('errorApellidos', 'El apellido debe tener al menos 3 caracteres.');
+        marcarCampo(this, false);
+    } else if (partes.length < 2) {
+        mostrarError('errorApellidos', 'Ingresa al menos 2 apellidos.');
+        marcarCampo(this, false);
+    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(valor)) {
+        mostrarError('errorApellidos', 'Solo letras y espacios son permitidos.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoApellidos', '✓ Apellidos válidos.');
+        marcarCampo(this, true);
+    }
+});
+
+// Validación del email
+document.getElementById('correo').addEventListener('input', function () {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.value)) {
+        mostrarError('errorCorreo', 'Formato de email inválido.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoCorreo', '✓ Email válido.');
+        marcarCampo(this, true);
+    }
+    // Revalidar confirmación de correo si existe
+    const confirmarCorreo = document.getElementById('confirmarCorreo');
+    if (confirmarCorreo && confirmarCorreo.value) {
+        confirmarCorreo.dispatchEvent(new Event('input'));
+    }
+});
+
+// Validación de confirmación de correo
+document.getElementById('confirmarCorreo').addEventListener('input', function () {
+    const correoOriginal = document.getElementById('correo').value;
+    if (this.value !== correoOriginal) {
+        mostrarError('errorConfirmarCorreo', 'Los correos no coinciden.');
+        marcarCampo(this, false);
+    } else if (this.value.length > 0) {
+        mostrarExito('exitoConfirmarCorreo', '✓ Correos coinciden.');
+        marcarCampo(this, true);
+    } else {
+        ocultarMensaje('errorConfirmarCorreo');
+        ocultarMensaje('exitoConfirmarCorreo');
+        marcarCampo(this, false);
+    }
+});
+
+// Validación de contraseña con indicador de fortaleza
+document.getElementById('password').addEventListener('input', function () {
+    const password = this.value;
+    const fortaleza = calcularFortalezaPassword(password);
+    actualizarBarraFortaleza(fortaleza);
+
+    if (password.length < 8) {
+        mostrarError('errorPassword', 'La contraseña debe tener al menos 8 caracteres.');
+        marcarCampo(this, false);
+    } else if (fortaleza.nivel < 2) {
+        mostrarError('errorPassword', 'Contraseña muy débil. Añade números, mayúsculas, minúsculas y símbolos.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoPassword', `✓ Contraseña ${fortaleza.texto}.`);
+        marcarCampo(this, true);
+    }
+    // Revalidar confirmación si existe
+    const confirmar = document.getElementById('confirmarPassword');
+    if (confirmar && confirmar.value) {
+        confirmar.dispatchEvent(new Event('input'));
+    }
+});
+
+// Validación de confirmación de contraseña
+document.getElementById('confirmarPassword').addEventListener('input', function () {
+    const password = document.getElementById('password').value;
+    if (this.value !== password) {
+        mostrarError('errorConfirmar', 'Las contraseñas no coinciden.');
+        marcarCampo(this, false);
+    } else if (this.value.length > 0) {
+        mostrarExito('exitoConfirmar', '✓ Contraseñas coinciden.');
+        marcarCampo(this, true);
+    } else {
+        ocultarMensaje('errorConfirmar');
+        ocultarMensaje('exitoConfirmar');
+        marcarCampo(this, false);
+    }
+});
+
+// Validación del teléfono con formato automático
+document.getElementById('telefono').addEventListener('input', function () {
+    // Aplicar formato automático
+    let valor = this.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+    if (valor.length > 6) {
+        valor = valor.substring(0, 3) + '-' + valor.substring(3, 6) + '-' + valor.substring(6, 10);
+    } else if (valor.length > 3) {
+        valor = valor.substring(0, 3) + '-' + valor.substring(3);
+    }
+    this.value = valor; // Actualiza el valor del input
+
+    const telefonoRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+    if (!telefonoRegex.test(valor) || valor.length < 12) { // Incluye verificación de longitud
+        mostrarError('errorTelefono', 'Formato esperado: 300-123-4567.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoTelefono', '✓ Teléfono válido.');
+        marcarCampo(this, true);
+    }
+});
+
+// Validación de fecha de nacimiento
+document.getElementById('fechaNacimiento').addEventListener('change', function () {
+    const fechaNacimiento = new Date(this.value);
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+        edad--; // Ajusta la edad si aún no ha cumplido años en el mes actual
+    }
+
+    if (isNaN(fechaNacimiento.getTime())) { // Verifica si la fecha es inválida
+        mostrarError('errorFecha', 'Formato de fecha no válido.');
+        marcarCampo(this, false);
+    } else if (edad < 18) {
+        mostrarError('errorFecha', 'Debes ser mayor de 18 años.');
+        marcarCampo(this, false);
+    } else if (edad > 100) {
+        mostrarError('errorFecha', 'Fecha de nacimiento poco probable.');
+        marcarCampo(this, false);
+    } else {
+        mostrarExito('exitoFecha', `✓ Edad: ${edad} años.`);
+        marcarCampo(this, true);
+    }
+});
+
+// Contador de caracteres para comentarios
+document.getElementById('comentarios').addEventListener('input', function () {
+    const contador = document.getElementById('contadorComentarios');
+    const maxLength = parseInt(this.getAttribute('maxlength') || 500); // Obtener maxlength del HTML
+    contador.textContent = this.value.length;
+
+    if (this.value.length > maxLength) {
+        contador.style.color = '#dc3545'; // Rojo si excede
+    } else if (this.value.length > maxLength * 0.9) { // 90% del límite
+        contador.style.color = '#ffc107'; // Naranja cerca del límite
+    } else {
+        contador.style.color = '#666'; // Gris por defecto
+    }
+    // Los comentarios son opcionales y siempre se consideran válidos en el estado general
+    marcarCampo(this, true);
+});
+
+// Validación de términos y condiciones
+document.getElementById('terminos').addEventListener('change', function () {
+    if (!this.checked) {
+        mostrarError('errorTerminos', 'Debes aceptar los términos y condiciones.');
+        marcarCampo(this, false);
+    } else {
+        ocultarMensaje('errorTerminos');
+        marcarCampo(this, true);
+    }
+});
+
+// 🎯 FUNCIONES AUXILIARES
+
+function mostrarError(idElemento, mensaje) {
+    const elemento = document.getElementById(idElemento);
+    if (elemento) {
+        elemento.textContent = mensaje;
+        elemento.style.display = 'block';
+        ocultarMensaje(idElemento.replace('error', 'exito'));
+    }
+}
+
+function mostrarExito(idElemento, mensaje) {
+    const elemento = document.getElementById(idElemento);
+    if (elemento) {
+        elemento.textContent = mensaje;
+        elemento.style.display = 'block';
+        ocultarMensaje(idElemento.replace('exito', 'error'));
+    }
+}
+
+function ocultarMensaje(idElemento) {
+    const elemento = document.getElementById(idElemento);
+    if (elemento) elemento.style.display = 'none';
+}
+
+function marcarCampo(campo, esValido) {
+    // Asegurarse de que el campo exista en estadoValidacion
+    if (estadoValidacion.hasOwnProperty(campo.name)) {
+        estadoValidacion[campo.name] = esValido;
+    }
+
+    if (esValido) {
+        campo.classList.remove('invalido');
+        campo.classList.add('valido');
+    } else {
+        campo.classList.remove('valido');
+        campo.classList.add('invalido');
+    }
+    actualizarProgreso();
+    actualizarBotonEnvio();
+}
+
+function calcularFortalezaPassword(password) {
+    let puntos = 0;
+    // Criterios para la fortaleza
+    if (password.length >= 8) puntos++;
+    if (password.length >= 12) puntos++;
+    if (/[a-z]/.test(password)) puntos++; // Minúsculas
+    if (/[A-Z]/.test(password)) puntos++; // Mayúsculas
+    if (/[0-9]/.test(password)) puntos++; // Números
+    if (/[^A-Za-z0-9]/.test(password)) puntos++; // Caracteres especiales
+
+    const niveles = ['muy débil', 'débil', 'media', 'fuerte', 'muy fuerte'];
+    // Ajustar el nivel para que siempre esté entre 0 y 4
+    const nivel = Math.min(Math.floor(puntos / 1.2), 4);
+    return { nivel, texto: niveles[nivel], puntos };
+}
+
+function actualizarBarraFortaleza(fortaleza) {
+    const barra = document.getElementById('strengthBar');
+    if (!barra) return;
+
+    // Las clases de CSS deben definir el color y el ancho para cada nivel
+    const clases = [
+        'strength-weak',
+        'strength-weak', // Nivel 1 puede ser igual de débil visualmente
+        'strength-medium',
+        'strength-strong',
+        'strength-very-strong',
+    ];
+    barra.className = 'password-strength ' + clases[fortaleza.nivel];
+}
+
+function actualizarProgreso() {
+    const totalCampos = Object.keys(estadoValidacion).length;
+    // Solo contar campos que NO son 'comentarios' o que son 'comentarios' Y están válidos
+    const camposValidos = Object.keys(estadoValidacion).filter(campoName => {
+        // 'comentarios' es true si es opcional y existe, otros campos son true si su validación es true
+        return estadoValidacion[campoName];
+    }).length;
+
+    const porcentaje = Math.round((camposValidos / totalCampos) * 100);
+    document.getElementById('barraProgreso').style.width = porcentaje + '%';
+    document.getElementById('porcentajeProgreso').textContent = porcentaje + '%';
+}
+
+function actualizarBotonEnvio() {
+    // Todos los campos en estadoValidacion deben ser 'true' para habilitar
+    const todosValidos = Object.values(estadoValidacion).every((valido) => valido);
+    btnEnviar.disabled = !todosValidos;
+}
+
+// 🎯 MANEJO DEL ENVÍO DEL FORMULARIO
+formulario.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evitar el envío normal del formulario
+
+    // Volver a validar todos los campos al intentar enviar, por si alguno se dejó vacío o inválido
+    campos.forEach(campo => {
+        // Disparar un evento 'input' o 'change' para revalidar, dependiendo del tipo de campo
+        if (campo.type === 'checkbox' || campo.type === 'radio' || campo.type === 'select-one') {
+            campo.dispatchEvent(new Event('change'));
+        } else {
+            campo.dispatchEvent(new Event('input'));
+        }
+    });
+
+    // Si después de la revalidación, no todos los campos son válidos, no proceder
+    const todosValidos = Object.values(estadoValidacion).every((valido) => valido);
+    if (!todosValidos) {
+        alert('Por favor, completa todos los campos requeridos correctamente antes de enviar.');
+        // Opcional: desplazar la vista al primer campo inválido
+        const primerCampoInvalido = Object.keys(estadoValidacion).find(key => !estadoValidacion[key]);
+        if (primerCampoInvalido) {
+            document.querySelector(`[name="${primerCampoInvalido}"]`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return; // Detener la función si hay campos inválidos
+    }
+
+    const datosFormulario = new FormData(this);
+    let resumenHTML = '';
+
+    for (let [campo, valor] of datosFormulario.entries()) {
+        if (valor && valor.trim() !== '') {
+            const nombreCampo = obtenerNombreCampo(campo);
+            resumenHTML += `
+                <div class="dato-resumen">
+                    <span class="etiqueta-resumen">${nombreCampo}: </span> ${valor}
+                </div>
+            `;
+        }
+    }
+
+    document.getElementById('contenidoResumen').innerHTML = resumenHTML;
+    document.getElementById('resumenDatos').style.display = 'block';
+
+    // Scroll suave hacia el resumen
+    document.getElementById('resumenDatos').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+
+    console.log(
+        '📊 Formulario enviado con validación completa:',
+        Object.fromEntries(datosFormulario)
+    );
+
+    // Opcional: Reiniciar el formulario después de mostrar el resumen
+});
+
+// Función para imprimir los datos del formulario
+function obtenerNombreCampo(campo) {
+    const nombres = {
+        nombres: 'Nombres completos',
+        apellidos: 'Apellidos completos',
+        correo: 'Correo electrónico',
+        confirmarCorreo: 'Confirmación de correo',
+        password: 'Contraseña',
+        confirmarPassword: 'Confirmación de contraseña',
+        telefono: 'Teléfono',
+        fechaNacimiento: 'Fecha de nacimiento',
+        comentarios: 'Comentarios',
+        terminos: 'Términos aceptados',
+    };
+    return nombres[campo] || campo;
+}
+
+function reiniciarFormulario() {
+    formulario.reset(); // Reinicia los campos del formulario a su estado inicial
+
+    // Ocultar sección de resumen
+    document.getElementById('resumenDatos').style.display = 'none';
+
+    // Reiniciar estado de validación para todos los campos
+    Object.keys(estadoValidacion).forEach((campoName) => {
+        // Comentarios son opcionales, se consideran válidos por defecto
+        estadoValidacion[campoName] = (campoName === 'comentarios');
+    });
+
+    // Limpiar clases visuales de campos y ocultar mensajes de error/éxito
+    campos.forEach((campo) => {
+        campo.classList.remove('valido', 'invalido');
+        // También limpiar el value de los campos que tienen formato automático
+        if (campo.id === 'telefono') {
+            campo.value = '';
+        }
+    });
+
+    document.querySelectorAll('.mensaje-error, .mensaje-exito').forEach((mensaje) => {
+        mensaje.style.display = 'none';
+        mensaje.textContent = ''; // Limpiar el texto también
+    });
+
+    // Reiniciar barra de progreso y botón de envío
+    actualizarProgreso();
+    actualizarBotonEnvio();
+
+    // Limpiar barra de fortaleza de contraseña
+    const strengthBar = document.getElementById('strengthBar');
+    if (strengthBar) {
+        strengthBar.className = 'password-strength'; // Volver a la clase base
+    }
+
+    // Desplazar la vista al inicio del formulario si se ha movido
+    formulario.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Disparar un evento de input/change en cada campo al cargar la página para inicializar el estado
+document.addEventListener('DOMContentLoaded', () => {
+    campos.forEach(campo => {
+        if (campo.type === 'checkbox' || campo.type === 'radio' || campo.type === 'select-one') {
+            campo.dispatchEvent(new Event('change'));
+        } else {
+
+            campo.dispatchEvent(new Event('input'));
+        }
+    });
+    actualizarProgreso();
+    actualizarBotonEnvio();
+});
+    </script>
   </body>
 </html>
